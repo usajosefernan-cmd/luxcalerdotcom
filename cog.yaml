@@ -16,8 +16,8 @@ build:
     - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.6.1/pget_linux_x86_64" && chmod +x /usr/local/bin/pget
     - apt-get update && apt-get install -y git wget
     # Install ComfyUI
-    - git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui
-      - pip install 'pydantic<2.0' --force-reinstall
+    - git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui && pip install 'pydantic<2.0' --force-reinstall
+
     - pip install -r /comfyui/requirements.txt
     # Install ComfyUI custom nodes
     - cd /comfyui/custom_nodes && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
