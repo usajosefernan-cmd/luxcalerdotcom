@@ -1,0 +1,25 @@
+# Cog configuration for Luxifier Controls Engine
+# Luxcalerdotcom - Professional ComfyUI upscaling with semantic controls
+
+build:
+  gpu: true
+  cuda: "12.1"
+  python_version: "3.11"
+  python_packages:
+    - torch==2.1.0
+    - torchvision==0.16.0
+    - Pillow==10.1.0
+    - numpy==1.26.2
+    - requests==2.31.0
+  run:
+    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.6.1/pget_linux_x86_64" && chmod +x /usr/local/bin/pget
+    - apt-get update && apt-get install -y git wget
+    # Install ComfyUI
+    - git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui
+    - pip install -r /comfyui/requirements.txt
+    # Install ComfyUI custom nodes
+    - cd /comfyui/custom_nodes && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+    - cd /comfyui/custom_nodes && git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git
+    - cd /comfyui/custom_nodes && git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git
+
+predict: "predict.py:Predictor"
