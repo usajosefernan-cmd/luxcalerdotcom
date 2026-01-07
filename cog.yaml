@@ -19,7 +19,7 @@ build:
     - git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui 
 
     - pip install -r /comfyui/requirements.txt
-      - pip install 'pydantic<2.0' --force-reinstall
+    - pip install 'pydantic<2.0' --force-reinstall
     # Install ComfyUI custom nodes
     - cd /comfyui/custom_nodes && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
     - cd /comfyui/custom_nodes && git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git
