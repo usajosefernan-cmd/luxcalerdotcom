@@ -17,6 +17,7 @@ build:
     - apt-get update && apt-get install -y git wget
     # Install ComfyUI
     - git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui
+      - pip install 'pydantic<2.0' --force-reinstall
     - pip install -r /comfyui/requirements.txt
     # Install ComfyUI custom nodes
     - cd /comfyui/custom_nodes && git clone https://github.com/ltdrdata/ComfyUI-Manager.git
